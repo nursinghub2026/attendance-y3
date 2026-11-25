@@ -616,8 +616,8 @@ $('export-pdf-btn').addEventListener('click', () => {
   const rows = all.map(x => `<tr class="${x.rec ? '' : 'a'}"><td>${x.no}</td><td class="n">${esc(x.name)}</td><td>${x.rec ? '✓' : ''}</td><td>${x.rec ? fmtTime(x.rec.timestamp) : ''}</td></tr>`).join('');
   w.document.write(`<!DOCTYPE html><html lang="ar" dir="rtl"><head><meta charset="UTF-8"><title>${esc(cur.courseName)} ${esc(cur.sessionDate)}</title>
   <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@700&family=Cairo:wght@400;700&display=swap" rel="stylesheet">
-  <style>body{font-family:'Cairo',sans-serif;padding:24px;color:#1e0b2e}h1{font-family:'Amiri',serif;font-size:24px;margin:0 0 4px;border-bottom:2px solid #c95c89;padding-bottom:8px}h2{font-size:14px;margin:6px 0 0;color:#a9426d}p{margin:8px 0 14px;color:#475569;font-size:12px}
-  table{width:100%;border-collapse:collapse;font-size:12px}th,td{border:1px solid #d9b6c5;padding:5px 8px;text-align:center}th{background:#1e0b2e;color:#e28fb2}td.n{text-align:right}tr.a td{color:#a794b8}tr{page-break-inside:avoid}</style></head><body>
+  <style>body{font-family:'Cairo',sans-serif;padding:24px;color:#0b292e}h1{font-family:'Amiri',serif;font-size:24px;margin:0 0 4px;border-bottom:2px solid #c9a55c;padding-bottom:8px}h2{font-size:14px;margin:6px 0 0;color:#a98742}p{margin:8px 0 14px;color:#475569;font-size:12px}
+  table{width:100%;border-collapse:collapse;font-size:12px}th,td{border:1px solid #d9cdb6;padding:5px 8px;text-align:center}th{background:#0b292e;color:#e2c68f}td.n{text-align:right}tr.a td{color:#94b3b8}tr{page-break-inside:avoid}</style></head><body>
   <h1>كشف حضور: ${esc(cur.courseName)}</h1>${cur.doctor ? `<h2>${esc(dr(cur.doctor))}</h2>` : ''}<p>${esc(cur.sessionDate)} | حاضر: ${present} | غائب: ${all.length - present} | الإجمالي: ${all.length}</p>
   <table><thead><tr><th style="width:40px">م</th><th>اسم الطالب</th><th style="width:50px">حضور</th><th style="width:90px">الوقت</th></tr></thead><tbody>${rows}</tbody></table></body></html>`);
   w.document.close();
@@ -756,7 +756,7 @@ function openQr(id) {
   $('qr-session-date').textContent = s.sessionDate;
   $('qr-link-input').value = url;
   const c = $('qr-code-container'); c.innerHTML = '';
-  if (window.QRCode) new QRCode(c, { text: url, width: 190, height: 190, colorDark: '#1e0b2e', colorLight: '#ffffff', correctLevel: QRCode.CorrectLevel.M });
+  if (window.QRCode) new QRCode(c, { text: url, width: 190, height: 190, colorDark: '#0b292e', colorLight: '#ffffff', correctLevel: QRCode.CorrectLevel.M });
   qrModal.classList.remove('hidden');
 }
 $('close-qr-modal').addEventListener('click', () => qrModal.classList.add('hidden'));
