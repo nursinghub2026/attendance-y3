@@ -77,7 +77,11 @@ async function loadCourses() {
 }
 
 // التاريخ فقط (بنشيل الوقت من المحاضرات القديمة)
-const dOnly = s => String(s || '').split(' - ')[0];
+const dOnly = s => {
+  const v = String(s || '').split(' - ')[0].trim(), m = /^(\d{4}-\d{2}-\d{2})(T.*)?$/.exec(v);
+  if (m) { let iso = m[1]; if (m[2]) { try { iso = new Date(v).toLocaleDateString('en-CA', { timeZone: 'Africa/Cairo' }); } catch {} } if (/^\d{4}-\d{2}-\d{2}$/.test(iso)) return buildSessionDate(iso); }
+  return v;
+};
 const cleanSession = s => s ? { ...s, sessionDate: dOnly(s.sessionDate) } : s;
 
 const getAdminKey = () => { try { return localStorage.getItem('att_admin_key_y3') || ''; } catch { return ''; } };
@@ -615,7 +619,7 @@ const _pgRav = renderAdminView;
 renderAdminView = function () { _pgRav(); clearTimeout(PGX.syncT); PGX.syncT = setTimeout(pgSync, PGX.open ? 50 : 1800); };
 
 const pgCss = document.createElement('style');
-pgCss.textContent = '@keyframes pgin{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}#pgx .pgv{animation:pgin .18s ease-out}#pgx .pgrow{transition:background .15s}#pgx .pgrow:active{background:rgba(201,165,92,.18)}@keyframes pgsp{to{transform:rotate(360deg)}}.pgsp{animation:pgsp .8s linear infinite}@media(max-width:639px){#admin-mode-wrapper header .btn.ring-1{width:2.6rem;padding-left:0;padding-right:0;flex:0 0 auto}#open-create-session-btn{min-width:6.5rem}}';
+pgCss.textContent = '@keyframes pgin{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}#pgx .pgv{animation:pgin .18s ease-out}#pgx .pgrow{transition:background .15s}#pgx .pgrow:active{background:rgba(201,165,92,.18)}@keyframes pgsp{to{transform:rotate(360deg)}}.pgsp{animation:pgsp .8s linear infinite}';
 document.head.appendChild(pgCss);
 const FOLDER_SVG = '<svg viewBox="0 0 24 24" class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>';
 const CHEV = '<svg viewBox="0 0 24 24" class="w-5 h-5 text-slate-300 shrink-0" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 6-6 6 6 6"/></svg>';
@@ -775,12 +779,8 @@ function pgStudent(name) {
   });
   return h;
 }
-(function addPgButtons() {
-  const ref = $('courses-btn'); if (!ref) return;
-  const mk = (id, label, svg, t) => { const b = document.createElement('button'); b.id = id; b.title = label; b.className = ref.className; b.innerHTML = svg + `<span class="hidden sm:inline">${label}</span>`; b.addEventListener('click', () => pgOpen(t)); ref.parentNode.insertBefore(b, ref); };
-  mk('pg-folders-btn', 'الفولدرات', FOLDER_SVG, 'folders');
-  mk('pg-students-btn', 'الطلاب', '<svg viewBox="0 0 24 24" class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10M10 20V4M16 20v-8M22 20H2"/></svg>', 'students');
-})();
+$('pg-folders-btn').addEventListener('click', () => pgOpen('folders'));
+$('pg-students-btn').addEventListener('click', () => pgOpen('students'));
 
 $('copy-student-link-header-btn').addEventListener('click', () => { if (selectedAdminSessionId) copyText(studentUrl(selectedAdminSessionId), 'تم نسخ رابط الطلاب'); });
 $('admin-search-input').addEventListener('input', renderRoster);
