@@ -6,7 +6,7 @@
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
 <meta http-equiv="Pragma" content="no-cache" />
 <meta http-equiv="Expires" content="0" />
-<meta id="meta-theme" name="theme-color" content="#071c1f">
+<meta id="meta-theme" name="theme-color" content="#13071f">
 <title>تسجيل حضور الطلاب - فرقة 3</title>
 <link rel="icon" type="image/svg+xml" href="icon.svg">
 
@@ -27,7 +27,7 @@
 function showBoot(msg) {
   var l = document.getElementById('app-loader');
   if (!l || l.classList.contains('hidden')) return;
-  l.innerHTML = '<div style="max-width:340px;text-align:center;padding:16px"><p style="color:#fb7185;font-weight:800;margin-bottom:8px">تعذر تشغيل النظام</p><p dir="ltr" style="font-size:12px;color:#cbdee1;word-break:break-word">' + String(msg).replace(/</g, '&lt;') + '</p><p style="font-size:12px;color:#e2c68f;margin-top:10px;line-height:1.8">تأكد من رفع index.html و app.js مع بعض، ومن نشر Code.gs كنسخة جديدة.</p><button onclick="location.reload()" style="margin-top:14px;padding:10px 24px;border-radius:12px;background:#c9a55c;color:#071c1f;font-weight:800">إعادة التحميل</button></div>';
+  l.innerHTML = '<div style="max-width:340px;text-align:center;padding:16px"><p style="color:#fb7185;font-weight:800;margin-bottom:8px">تعذر تشغيل النظام</p><p dir="ltr" style="font-size:12px;color:#d6cbe1;word-break:break-word">' + String(msg).replace(/</g, '&lt;') + '</p><p style="font-size:12px;color:#e2c68f;margin-top:10px;line-height:1.8">تأكد من رفع index.html و app.js مع بعض، ومن نشر Code.gs كنسخة جديدة.</p><button onclick="location.reload()" style="margin-top:14px;padding:10px 24px;border-radius:12px;background:#c9a55c;color:#13071f;font-weight:800">إعادة التحميل</button></div>';
 }
 window.addEventListener('error', function (e) { showBoot((e.message || 'error') + (e.lineno ? ' (line ' + e.lineno + ')' : '')); });
 window.addEventListener('unhandledrejection', function (e) { showBoot((e.reason && e.reason.message) || e.reason || 'rejected'); });
@@ -43,7 +43,7 @@ setTimeout(function () { showBoot('timeout: السيرفر لم يرد'); }, 750
 tailwind.config = { theme: { extend: {
   fontFamily: { sans: ['Cairo', 'sans-serif'] },
   colors: {
-    ink: { 950:'#071c1f', 900:'#0b292e', 800:'#10393f', 700:'#18555e' },
+    ink: { 950:'#13071f', 900:'#1c0b2e', 800:'#27103f', 700:'#3b185e' },
     gold: { 200:'#efddb8', 300:'#e2c68f', 400:'#d4b26f', 500:'#c9a55c', 600:'#a98742' }
   }
 } } }
@@ -59,19 +59,19 @@ tailwind.config = { theme: { extend: {
   .btn-p { @apply btn text-white bg-gradient-to-l from-ink-900 to-ink-700 hover:opacity-95 shadow-md; }
   .btn-gold { @apply btn text-ink-950 bg-gradient-to-l from-gold-400 to-gold-300 hover:opacity-95 shadow-md; }
   .btn-out { @apply btn bg-white border border-slate-200 hover:border-gold-500 text-ink-800; }
-  .card { @apply bg-white rounded-[28px] shadow-[0_20px_60px_-15px_rgba(7,28,31,.25)] border border-slate-100; }
+  .card { @apply bg-white rounded-[28px] shadow-[0_20px_60px_-15px_rgba(19,7,31,.25)] border border-slate-100; }
   .row { @apply w-full flex items-center gap-3 px-3.5 py-3.5 text-sm font-bold text-ink-800 text-right transition hover:bg-slate-50 active:bg-gold-200/30; }
   .row-sel { @apply bg-gold-200/30 text-ink-950 ring-2 ring-inset ring-gold-500; }
   .row-taken { @apply bg-slate-50 text-slate-300 cursor-not-allowed; }
   .num { @apply w-9 h-9 shrink-0 rounded-full bg-slate-100 text-slate-500 text-xs font-extrabold flex items-center justify-center; }
-  .row-sel .num { background: #0b292e; color: #e2c68f; }
+  .row-sel .num { background: #1c0b2e; color: #e2c68f; }
   .chk { @apply w-7 h-7 shrink-0 rounded-full bg-ink-900 text-gold-300 flex items-center justify-center; animation: pop .25s ease-out; }
   .ring-empty { @apply w-6 h-6 shrink-0 rounded-full border-2 border-slate-200; }
   .tag-taken { @apply shrink-0 text-[10px] font-extrabold text-slate-400 bg-slate-100 px-2.5 py-1 rounded-full; }
   .chip { @apply inline-flex items-center gap-2 bg-white/10 ring-1 ring-gold-400/40 rounded-full px-4 py-2 text-xs sm:text-sm font-bold text-gold-200 backdrop-blur; }
   .seg { @apply flex-1 py-3 rounded-xl text-xs font-extrabold border transition; }
 }
-body{font-family:'Cairo',sans-serif;background:#f4f1ea;color:#0b292e;-webkit-tap-highlight-color:transparent}
+body{font-family:'Cairo',sans-serif;background:#f4f1ea;color:#1c0b2e;-webkit-tap-highlight-color:transparent}
 .font-display{font-family:'Amiri','Cairo',serif}
 .gold-text{background:linear-gradient(90deg,#efddb8,#c9a55c 50%,#efddb8);-webkit-background-clip:text;background-clip:text;color:transparent}
 .fade-in{animation:fadeIn .4s ease-out}
@@ -86,7 +86,7 @@ button:disabled{opacity:.5;cursor:not-allowed}
 .safe-b{padding-bottom:max(.75rem,env(safe-area-inset-bottom))}
 
 .hero{position:relative;overflow:hidden;color:#fff;
-  background:radial-gradient(circle at 15% 0%,rgba(201,165,92,.28),transparent 45%),radial-gradient(circle at 95% 100%,rgba(90,194,210,.22),transparent 50%),linear-gradient(160deg,#051517,#0f4047 60%,#16555f)}
+  background:radial-gradient(circle at 15% 0%,rgba(201,165,92,.28),transparent 45%),radial-gradient(circle at 95% 100%,rgba(150,90,210,.22),transparent 50%),linear-gradient(160deg,#0e0517,#2b0f47 60%,#3a165f)}
 .hero::before{content:"";position:absolute;inset:0;background-image:repeating-linear-gradient(45deg,rgba(255,255,255,.03) 0 1px,transparent 1px 16px);pointer-events:none}
 .hero::after{content:"";position:absolute;left:0;right:0;bottom:0;height:2px;background:linear-gradient(90deg,transparent,#c9a55c,transparent)}
 .emblem{width:84px;height:84px;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#e2c68f;
@@ -102,23 +102,23 @@ button:disabled{opacity:.5;cursor:not-allowed}
 .live{animation:pulse2 1.6s infinite}
 .goldbar{height:6px;background:linear-gradient(90deg,#a98742,#efddb8,#a98742,#efddb8,#a98742);background-size:200% 100%;animation:shine 6s linear infinite}
 
-.pk-nav{width:42px;height:42px;border-radius:14px;background:#f1f5f9;color:#10393f;display:flex;align-items:center;justify-content:center}
-.pk-nav:active{background:#e2eef0}
+.pk-nav{width:42px;height:42px;border-radius:14px;background:#f1f5f9;color:#27103f;display:flex;align-items:center;justify-content:center}
+.pk-nav:active{background:#e9e2f0}
 .pk-grid7{display:grid;grid-template-columns:repeat(7,1fr);gap:4px;text-align:center}
-.pk-dow{font-size:10px;font-weight:800;color:#94b3b8;padding:4px 0}
-.pk-day{height:42px;border-radius:14px;font-weight:700;font-size:14px;color:#0b292e}
+.pk-dow{font-size:10px;font-weight:800;color:#a694b8;padding:4px 0}
+.pk-day{height:42px;border-radius:14px;font-weight:700;font-size:14px;color:#1c0b2e}
 .pk-day:hover{background:#f4f1ea}
 .pk-day.today{box-shadow:inset 0 0 0 2px #e2c68f}
-.pk-day.on{background:#0b292e;color:#e2c68f;box-shadow:none}
-.pk-disp{display:flex;direction:ltr;align-items:center;justify-content:center;gap:4px;font-size:52px;font-weight:800;color:#cbdee1;margin:4px 0 10px}
-.pk-disp button{min-width:84px;border-radius:16px;padding:2px 8px;color:#94b3b8}
-.pk-disp button.act{color:#0b292e;background:#f4eee2}
+.pk-day.on{background:#1c0b2e;color:#e2c68f;box-shadow:none}
+.pk-disp{display:flex;direction:ltr;align-items:center;justify-content:center;gap:4px;font-size:52px;font-weight:800;color:#d6cbe1;margin:4px 0 10px}
+.pk-disp button{min-width:84px;border-radius:16px;padding:2px 8px;color:#a694b8}
+.pk-disp button.act{color:#1c0b2e;background:#f4eee2}
 .pk-cells{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
-.pk-cell{height:54px;border-radius:16px;background:#f1f5f9;font-weight:800;font-size:18px;color:#10393f;transition:.15s}
+.pk-cell{height:54px;border-radius:16px;background:#f1f5f9;font-weight:800;font-size:18px;color:#27103f;transition:.15s}
 .pk-cell:active{transform:scale(.95)}
-.pk-cell.on{background:#0b292e;color:#e2c68f}
+.pk-cell.on{background:#1c0b2e;color:#e2c68f}
 .pk-ap{flex:1;height:46px;border-radius:14px;background:#f1f5f9;font-weight:800;color:#475569}
-.pk-ap.on{background:#c9a55c;color:#071c1f}
+.pk-ap.on{background:#c9a55c;color:#13071f}
 .pick-btn{display:flex;align-items:center;justify-content:space-between;text-align:right;cursor:pointer}
 
 /* زر تبديل الوضع */
@@ -130,52 +130,52 @@ html.dark .ico-moon{display:none}
 <!-- ===== الوضع الداكن (للأدمن فقط) ===== -->
 <style>
 html.dark{color-scheme:dark}
-html.dark body{background:#061618;color:#e6edf5}
-html.dark .card,html.dark .box{background:#0d282c;border-color:#1d4950}
+html.dark body{background:#0f0618;color:#e6edf5}
+html.dark .card,html.dark .box{background:#1c0d2c;border-color:#361d50}
 html.dark .card{box-shadow:0 20px 60px -15px rgba(0,0,0,.7)}
-html.dark .ticket{background:linear-gradient(180deg,#0f3136,#0d282c);border-color:#2a6068}
-html.dark .ticket .dash{border-color:#2a6068}
-html.dark .bg-white{background-color:#0d282c}
-html.dark .bg-white\/95{background-color:rgba(13,40,44,.95)}
-html.dark .bg-slate-50{background-color:#0a2226}
-html.dark .bg-slate-100{background-color:#143e44}
-html.dark .bg-slate-200{background-color:#1d4950}
-html.dark .bg-slate-300{background-color:#2a6068}
+html.dark .ticket{background:linear-gradient(180deg,#220f36,#1c0d2c);border-color:#492a68}
+html.dark .ticket .dash{border-color:#492a68}
+html.dark .bg-white{background-color:#1c0d2c}
+html.dark .bg-white\/95{background-color:rgba(28,13,44,.95)}
+html.dark .bg-slate-50{background-color:#180a26}
+html.dark .bg-slate-100{background-color:#2c1444}
+html.dark .bg-slate-200{background-color:#361d50}
+html.dark .bg-slate-300{background-color:#492a68}
 html.dark .bg-rose-50{background-color:#3a1620}
-html.dark .bg-ink-900{background-color:#18555e}
-html.dark .border-slate-100,html.dark .border-slate-200{border-color:#1d4950}
-html.dark .divide-slate-100>:not([hidden])~:not([hidden]){border-color:#1d4950}
+html.dark .bg-ink-900{background-color:#3b185e}
+html.dark .border-slate-100,html.dark .border-slate-200{border-color:#361d50}
+html.dark .divide-slate-100>:not([hidden])~:not([hidden]){border-color:#361d50}
 html.dark .text-ink-900,html.dark .text-ink-800{color:#f1f5f9}
-html.dark .text-slate-400{color:#7fa7ad}
-html.dark .text-slate-500,html.dark .text-slate-600{color:#a9c5c9}
-html.dark .lbl{color:#e2eef0}
-html.dark .inp{background:#0a2226;border-color:#1d4950;color:#f1f5f9}
-html.dark .inp:focus{background:#0d282c}
+html.dark .text-slate-400{color:#967fad}
+html.dark .text-slate-500,html.dark .text-slate-600{color:#b9a9c9}
+html.dark .lbl{color:#e9e2f0}
+html.dark .inp{background:#180a26;border-color:#361d50;color:#f1f5f9}
+html.dark .inp:focus{background:#1c0d2c}
 html.dark input,html.dark textarea{color:#f1f5f9}
 html.dark ::placeholder{color:#6b7f99}
-html.dark .btn-g{background:#143e44;color:#e6edf5}
-html.dark .btn-g:hover{background:#1d4950}
-html.dark .btn-out{background:#0d282c;border-color:#1d4950;color:#e6edf5}
-html.dark .btn-p{background:linear-gradient(to left,#18555e,#247683)}
+html.dark .btn-g{background:#2c1444;color:#e6edf5}
+html.dark .btn-g:hover{background:#361d50}
+html.dark .btn-out{background:#1c0d2c;border-color:#361d50;color:#e6edf5}
+html.dark .btn-p{background:linear-gradient(to left,#3b185e,#532483)}
 html.dark .row{color:#e6edf5}
-html.dark .row:hover{background-color:#13373d}
+html.dark .row:hover{background-color:#28133d}
 html.dark .row-sel{color:#fff}
-html.dark .row-taken{background:#0a2226;color:#4b7278}
-html.dark .num{background:#143e44;color:#9fc3c8}
-html.dark .row-sel .num{background:#c9a55c;color:#071c1f}
-html.dark .chk{background:#c9a55c;color:#071c1f}
-html.dark .ring-empty{border-color:#2a6068}
-html.dark .tag-taken{background:#143e44;color:#7fa7ad}
+html.dark .row-taken{background:#180a26;color:#614b78}
+html.dark .num{background:#2c1444;color:#b39fc8}
+html.dark .row-sel .num{background:#c9a55c;color:#13071f}
+html.dark .chk{background:#c9a55c;color:#13071f}
+html.dark .ring-empty{border-color:#492a68}
+html.dark .tag-taken{background:#2c1444;color:#967fad}
 html.dark .peer:checked+span{background:#a98742}
-html.dark .pk-nav{background:#143e44;color:#e6edf5}
+html.dark .pk-nav{background:#2c1444;color:#e6edf5}
 html.dark .pk-day{color:#e6edf5}
-html.dark .pk-day:hover{background:#13373d}
-html.dark .pk-day.on{background:#c9a55c;color:#071c1f}
-html.dark .pk-disp{color:#2a6068}
+html.dark .pk-day:hover{background:#28133d}
+html.dark .pk-day.on{background:#c9a55c;color:#13071f}
+html.dark .pk-disp{color:#492a68}
 html.dark .pk-disp button{color:#6b7f99}
-html.dark .pk-disp button.act{background:#13373d;color:#e2c68f}
-html.dark .pk-cell,html.dark .pk-ap{background:#143e44;color:#e6edf5}
-html.dark .pk-cell.on{background:#c9a55c;color:#071c1f}
+html.dark .pk-disp button.act{background:#28133d;color:#e2c68f}
+html.dark .pk-cell,html.dark .pk-ap{background:#2c1444;color:#e6edf5}
+html.dark .pk-cell.on{background:#c9a55c;color:#13071f}
 html.dark .keep-white{background:#fff !important}
 </style>
 </head>
@@ -184,14 +184,14 @@ html.dark .keep-white{background:#fff !important}
 <div id="toast-container" style="z-index:80" class="fixed top-4 left-4 right-4 flex flex-col items-center pointer-events-none gap-2"></div>
 
 <!-- Confirm -->
-<div id="pw-gate" class="hidden fixed inset-0 flex items-center justify-center p-6" style="z-index:120;background:radial-gradient(circle at 15% 0%,rgba(201,165,92,.28),transparent 45%),radial-gradient(circle at 95% 100%,rgba(90,194,210,.22),transparent 50%),linear-gradient(160deg,#10393f,#071c1f)">
+<div id="pw-gate" class="hidden fixed inset-0 flex items-center justify-center p-6" style="z-index:120;background:radial-gradient(circle at 15% 0%,rgba(201,165,92,.28),transparent 45%),radial-gradient(circle at 95% 100%,rgba(150,90,210,.22),transparent 50%),linear-gradient(160deg,#27103f,#13071f)">
   <div class="w-full max-w-sm text-center">
     <div class="emblem mx-auto mb-5" id="pw-emblem"></div>
     <p class="text-[11px] font-bold text-gold-300 tracking-[.25em] mb-2" id="pw-label">لوحة التحكم · فرقة 3</p>
     <h2 class="font-display text-3xl font-bold text-white mb-2">كلمة السر</h2>
     <div class="divider"><i></i><b></b><i></i></div>
     <p class="text-sm text-slate-300 mb-5">أدخل كلمة سر لوحة التحكم للدخول</p>
-    <input id="pw-input" type="password" autocomplete="current-password" dir="ltr" placeholder="••••••" class="inp text-center text-lg tracking-widest" style="background:#fff;color:#0b292e">
+    <input id="pw-input" type="password" autocomplete="current-password" dir="ltr" placeholder="••••••" class="inp text-center text-lg tracking-widest" style="background:#fff;color:#1c0b2e">
     <p id="pw-err" class="text-rose-300 text-xs font-bold mt-2 hidden"></p>
     <button id="pw-ok" type="button" class="btn-gold w-full mt-4">دخول</button>
   </div>
@@ -362,7 +362,7 @@ html.dark .keep-white{background:#fff !important}
     </div>
 
     <div id="student-receipt-card" class="hidden fade-in">
-      <div class="ticket shadow-[0_20px_60px_-15px_rgba(7,28,31,.3)] overflow-hidden">
+      <div class="ticket shadow-[0_20px_60px_-15px_rgba(19,7,31,.3)] overflow-hidden">
         <div class="goldbar"></div>
         <div class="p-7 text-center">
           <svg viewBox="0 0 72 72" class="w-24 h-24 mx-auto mb-3" fill="none">
@@ -460,7 +460,7 @@ document.addEventListener('click', function (e) {
   document.documentElement.classList.toggle('dark', dark);
   try { localStorage.setItem('att_theme', dark ? 'dark' : 'light'); } catch (err) {}
   var m = document.getElementById('meta-theme');
-  if (m) m.setAttribute('content', dark ? '#061618' : '#071c1f');
+  if (m) m.setAttribute('content', dark ? '#0f0618' : '#13071f');
 });
 </script>
 <script type="module" src="app.js?v=18"></script>
